@@ -1,8 +1,6 @@
 package web.model;
 
-
 import javax.persistence.Table;
-
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -10,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 
 @Entity
@@ -19,6 +18,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
     @Column
+    @NotEmpty(message = "Name is required.")// требуется указать имя
     private String name;
     @Min(value = 0, message = "Age should be greater than 0")
     @Column
